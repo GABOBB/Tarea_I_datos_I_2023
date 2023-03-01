@@ -15,19 +15,30 @@ public class L_D_E {
     private N_D_E head = null;
     private N_D_E last = null;
     
-    public void L_D_E(N_D_E nodo){
+    public int getSize(){return this.size;}
+
+    public void L_D_E(Persona P){
+        N_D_E nodo = new N_D_E(P);
         this.head = nodo;
+        this.last = nodo;
         this.size++;
     }
    
     public void L_D_E(){ 
     }
-    
-    public int getSize(){return this.size;}
+     
     
     public void add_N(Persona P){
         N_D_E N_N = new N_D_E(P);
-        
-        
+        if(this.size<1){
+            this.head = N_N;
+            this.last = N_N;
+        }else{
+            this.last.setN(N_N);
+            N_N.setP(this.last);
+        }
+        this.size++;
+
     }
+
 }
