@@ -19,4 +19,10 @@ public class N_D_E {
         this.Per = P;
     }
     
+    public void setN(N_D_E nodo){
+        this.N_Nodo = nodo;
+    }
+    public void setP(N_D_E nodo){
+        this.P_Nodo = nodo;
+    }
 }

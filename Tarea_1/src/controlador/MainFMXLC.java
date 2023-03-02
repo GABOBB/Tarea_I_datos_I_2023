@@ -4,6 +4,8 @@
  */
 package controlador;
 
+import data_structures.L_D_E;
+import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -21,6 +23,8 @@ import javafx.scene.text.Text;
  * @author Gabriel
  */
 public class MainFMXLC implements Initializable {
+    
+    L_D_E listaPersonas = new L_D_E();
 
     @FXML
     private Text Rst;
@@ -75,8 +79,19 @@ public class MainFMXLC implements Initializable {
     }
 
     @FXML
-    private void add_Persona(ActionEvent event) {
-        if(true){}
+    private void add_Persona(ActionEvent event){
+        if(listaPersonas.getSize()<=4){
+            int edge; String name;
+            try{
+                name = this.new_name.getText();
+                edge = 1/name.length();
+                edge = parseInt(this.new_edge.getText());
+            }catch(Exception E){ error_txt.setText("error en los datos"); }
+        }else{
+            this.error_txt.setText("ya se supero la cantidad maxima de personas");
+            this.remplazar.setVisible(true);
+        }
+      
     }
 
     @FXML
