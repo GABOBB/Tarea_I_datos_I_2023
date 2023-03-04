@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package controlador;
 
 import data_structures.L_D_E;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import modelos.Persona;
 
 /**
  * FXML Controller class
@@ -24,8 +23,10 @@ import javafx.scene.text.Text;
  */
 public class MainFMXLC implements Initializable {
     
-    L_D_E listaPersonas = new L_D_E();
+    private L_D_E listaPersonas;
 
+    ObservableList<Persona> personas = FXCollections.observableArrayList();
+    
     @FXML
     private Text Rst;
     @FXML
@@ -39,17 +40,17 @@ public class MainFMXLC implements Initializable {
     @FXML
     private Button add_N_P;
     @FXML
-    private ComboBox<?> remplazar;
+    private ComboBox<Persona> remplazar;
     @FXML
     private TextField new_edge;
     @FXML
-    private ComboBox<?> new_P;
+    private ComboBox<String> new_P;
     @FXML
     private TextField new_name;
     @FXML
-    private ComboBox<?> operando1;
+    private ComboBox<Persona> operando1;
     @FXML
-    private ComboBox<?> operando2;
+    private ComboBox<Persona> operando2;
     @FXML
     private Text error_txt;
 
@@ -58,34 +59,92 @@ public class MainFMXLC implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.listaPersonas = new L_D_E();
+            ObservableList<String> provincias = FXCollections.observableArrayList("San Jose",
+                                                                                "Cartago",
+                                                                                "Heredia",
+                                                                                "Alajuela",
+                                                                                "Puntarenas",
+                                                                                "Guanacaste",
+                                                                                "Limon");
+        this.new_P.setItems(provincias);
+        
+        this.operando1.setItems(personas);
+        this.operando2.setItems(personas);
+        this.remplazar.setItems(personas);
     }    
 
     @FXML
     private void add_edad(ActionEvent event) {
+        try{
+            Persona op1 = operando1.getSelectionModel().getSelectedItem();
+            Persona op2 = operando2.getSelectionModel().getSelectedItem();
+
+            int resultado = op1.getEdad() + op2.getEdad();
+
+            this.Rst.setText(resultado+"");
+        }catch(Exception e){
+            error_txt.setText("error en los datos");
+        }
     }
 
     @FXML
     private void minus_edad(ActionEvent event) {
+        try{
+            Persona op1 = operando1.getSelectionModel().getSelectedItem();
+            Persona op2 = operando2.getSelectionModel().getSelectedItem();
+
+            int resultado = op1.getEdad() - op2.getEdad();
+
+            this.Rst.setText(resultado+"");
+        }catch(Exception e){
+            error_txt.setText("error en los datos");
+        }
     }
 
     @FXML
     private void mutl_edad(ActionEvent event) {
+        try{
+            Persona op1 = operando1.getSelectionModel().getSelectedItem();
+            Persona op2 = operando2.getSelectionModel().getSelectedItem();
+
+            int resultado = op1.getEdad() * op2.getEdad();
+
+            this.Rst.setText(resultado+"");
+        }catch(Exception e){
+            error_txt.setText("error en los datos");
+        }
     }
 
     @FXML
     private void div_edad(ActionEvent event) {
-        
+        try{
+            Persona op1 = operando1.getSelectionModel().getSelectedItem();
+            Persona op2 = operando2.getSelectionModel().getSelectedItem();
+            if(op2.getEdad() == 0){
+                this.Rst.setText("indefinido <divicion por 0>");
+            }else{
+                int resultado = op1.getEdad() / op2.getEdad();
+
+                this.Rst.setText(resultado+"");
+            }
+        }catch(Exception e){
+            error_txt.setText("error en los datos");
+        }
     }
 
     @FXML
     private void add_Persona(ActionEvent event){
-        if(listaPersonas.getSize()<=4){
-            int edge; String name;
+        if(listaPersonas.getSize()<4){
+            int num; String name;
             try{
                 name = this.new_name.getText();
-                edge = 1/name.length();
-                edge = parseInt(this.new_edge.getText());
+                num = 1/name.length();
+                num = parseInt(this.new_edge.getText());
+                error_txt.setText("");
+                Persona N_Per = new Persona(num, name, new_P.getSelectionModel().getSelectedItem().toString());
+                this.listaPersonas.add_N(N_Per);
+                this.personas.add(N_Per);
             }catch(Exception E){ error_txt.setText("error en los datos"); }
         }else{
             this.error_txt.setText("ya se supero la cantidad maxima de personas");
@@ -96,6 +155,7 @@ public class MainFMXLC implements Initializable {
 
     @FXML
     private void Remplazar_P(ActionEvent event) {
+        error_txt.setText("");
     }
 
     

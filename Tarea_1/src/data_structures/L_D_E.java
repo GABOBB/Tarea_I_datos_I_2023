@@ -40,5 +40,17 @@ public class L_D_E {
         this.size++;
 
     }
+    
+    public Persona busca_Id(String id){
+        if(this.head == null){
+            return null;
+        }else{
+            N_D_E act = this.head;
+            while(act.getPer().getID() != id || act.getN() != null){
+            }
+            return act.getPer();
+        }
+    
+    }
 
 }

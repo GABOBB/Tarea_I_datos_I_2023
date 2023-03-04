@@ -22,7 +22,20 @@ public class N_D_E {
     public void setN(N_D_E nodo){
         this.N_Nodo = nodo;
     }
+    
+    public N_D_E getN(){
+        return this.N_Nodo;
+    }
+    
     public void setP(N_D_E nodo){
         this.P_Nodo = nodo;
+    }
+    
+    public N_D_E getP(){
+        return this.P_Nodo;
+    }
+    
+    public Persona getPer(){
+        return this.Per;
     }
 }
