@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="386.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MainFMXLC">
+<AnchorPane id="AnchorPane" prefHeight="305.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MainFMXLC">
    <children>
       <Text fill="RED" layoutX="77.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="Rst" layoutX="134.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="389.13671875">
@@ -23,16 +23,15 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="add_e" layoutX="344.0" layoutY="290.0" mnemonicParsing="false" onAction="#add_edad" prefHeight="25.0" prefWidth="25.0" text="+" />
-      <Button fx:id="minus_e" layoutX="395.0" layoutY="290.0" mnemonicParsing="false" onAction="#minus_edad" prefHeight="25.0" prefWidth="25.0" text="-" />
-      <Button fx:id="mult_e" layoutX="445.0" layoutY="290.0" mnemonicParsing="false" onAction="#mutl_edad" prefHeight="25.0" prefWidth="25.0" text="*">
+      <Button fx:id="add_e" layoutX="524.0" layoutY="79.0" mnemonicParsing="false" onAction="#add_edad" prefHeight="25.0" prefWidth="25.0" text="+" />
+      <Button fx:id="minus_e" layoutX="524.0" layoutY="120.0" mnemonicParsing="false" onAction="#minus_edad" prefHeight="25.0" prefWidth="25.0" text="-" />
+      <Button fx:id="mult_e" layoutX="524.0" layoutY="158.0" mnemonicParsing="false" onAction="#mutl_edad" prefHeight="25.0" prefWidth="25.0" text="*">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="div_e" layoutX="495.0" layoutY="290.0" mnemonicParsing="false" onAction="#div_edad" prefHeight="25.0" prefWidth="25.0" text="/" />
-      <Button fx:id="add_N_P" layoutX="39.0" layoutY="249.0" mnemonicParsing="false" onAction="#add_Persona" text="Añadir Perosona" />
-      <ComboBox fx:id="remplazar" layoutX="40.0" layoutY="300.0" onAction="#Remplazar_P" prefWidth="150.0" visible="false" />
+      <Button fx:id="div_e" layoutX="524.0" layoutY="196.0" mnemonicParsing="false" onAction="#div_edad" prefHeight="25.0" prefWidth="25.0" text="/" />
+      <Button fx:id="add_N_P" layoutX="195.0" layoutY="208.0" mnemonicParsing="false" onAction="#add_Persona" text="Añadir Perosona" />
       <Text layoutX="14.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="provincia:" wrappingWidth="114.13671875">
          <font>
             <Font size="17.0" />
@@ -49,21 +48,21 @@
          </font>
       </Text>
       <TextField fx:id="new_edge" layoutX="30.0" layoutY="208.0" prefHeight="25.0" prefWidth="150.0" />
-      <ComboBox fx:id="new_P" layoutX="30.0" layoutY="155.0" onAction="#Remplazar_P" prefHeight="25.0" prefWidth="150.0" />
+      <ComboBox fx:id="new_P" layoutX="30.0" layoutY="155.0" prefHeight="25.0" prefWidth="150.0" />
       <TextField fx:id="new_name" layoutX="30.0" layoutY="94.0" prefHeight="25.0" prefWidth="150.0" />
-      <ComboBox fx:id="operando1" layoutX="344.0" layoutY="139.0" prefHeight="25.0" prefWidth="150.0" />
-      <Text layoutX="328.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Persona 1" wrappingWidth="114.13671875">
+      <ComboBox fx:id="operando1" layoutX="328.0" layoutY="106.0" prefHeight="25.0" prefWidth="150.0" />
+      <Text layoutX="312.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Persona 1" wrappingWidth="114.13671875">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <ComboBox fx:id="operando2" layoutX="344.0" layoutY="223.0" prefHeight="25.0" prefWidth="150.0" />
-      <Text layoutX="328.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Persona 2" wrappingWidth="114.13671875">
+      <ComboBox fx:id="operando2" layoutX="327.0" layoutY="194.0" prefHeight="25.0" prefWidth="150.0" />
+      <Text layoutX="314.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Persona 2" wrappingWidth="114.13671875">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fx:id="error_txt" fill="RED" layoutX="12.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="545.13671875">
+      <Text fx:id="error_txt" fill="RED" layoutX="16.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="552.13671875">
          <font>
             <Font size="25.0" />
          </font>
